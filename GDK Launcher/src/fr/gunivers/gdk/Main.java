@@ -2,6 +2,7 @@ package fr.gunivers.gdk;
 
 import java.util.ArrayList;
 
+import fr.gunivers.gdk.gui.model.GDKPlugin;
 import fr.gunivers.gdk.gui.util.Application;
 import fr.gunivers.gdk.gui.util.Util;
 import fr.gunivers.gdk.gui.view.BaseController;

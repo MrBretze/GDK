@@ -10,8 +10,8 @@ import java.util.function.BiConsumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import fr.gunivers.gdk.GDKPlugin;
 import fr.gunivers.gdk.Main;
+import fr.gunivers.gdk.gui.model.GDKPlugin;
 import fr.gunivers.gdk.gui.util.Application;
 import fr.gunivers.gdk.gui.util.Controller;
 import fr.gunivers.gdk.gui.util.Util;

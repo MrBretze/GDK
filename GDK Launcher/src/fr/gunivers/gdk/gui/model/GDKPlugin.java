@@ -1,4 +1,4 @@
-package fr.gunivers.gdk;
+package fr.gunivers.gdk.gui.model;
 
 import java.io.File;
 
