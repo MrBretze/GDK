@@ -5,11 +5,11 @@ apply plugin: 'eclipse'
 group = 'fr.gunivers.gdk'
 version = '1.0'
 
-description = "GDK-Launcher"
+description = "GDK"
 
 eclipse {
     project {
-        name = 'GDK-Launcher'
+        name = 'GDK'
     }
 }
 
