@@ -23,6 +23,11 @@
                         <KeyCodeCombination alt="UP" code="P" control="ANY" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#menuFile_clickSave" text="Save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
                   <SeparatorMenuItem hideOnClick="true" mnemonicParsing="false" />
               <MenuItem mnemonicParsing="false" onAction="#menuFile_clickQuit" text="Quit">
                      <accelerator>

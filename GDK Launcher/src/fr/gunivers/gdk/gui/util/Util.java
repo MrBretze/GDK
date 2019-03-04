@@ -61,8 +61,7 @@ public class Util
 		{
 			ZipEntry plugin_txt = jar.getEntry("plugin.txt");
 			
-			if (plugin_txt == null)
-				return Util.newEntry(null, "Could not find 'plugin.txt'");
+			if (plugin_txt == null) return Util.newEntry(null, "Could not find 'plugin.txt'");
 			
 			GDKPlugin plugin = new GDKPlugin();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(jar.getInputStream(plugin_txt)));
@@ -71,12 +70,12 @@ public class Util
 			{
 				if (!line.matches(".+=.+")) continue;
 				
-				if (line.equalsIgnoreCase(Link.DESCRIPTION.key +'='))
+				if (line.equalsIgnoreCase("description="))
 				{
-					System.out.println("Parsing description");
 					StringBuilder desc = new StringBuilder();
+					while((line = reader.readLine()) != null) desc.append('\n'+line);
 					
-					while((line = reader.readLine()) != null) desc.append(line);
+					plugin.setDescription(desc.toString());
 					break loop;
 				}
 				
@@ -101,7 +100,7 @@ public class Util
 		} catch (IOException e)
 		{
 			e.printStackTrace();
-			return Util.newEntry(null, "IOException occured");
+			return Util.newEntry(null, e.getClass().getSimpleName() +" occured");
 		}
 	}
 	
@@ -119,7 +118,6 @@ enum Link
 	NAME("name", (p,s) -> p.setName(s)),
 	AUTHOR("author", (p,s) -> p.setAuthor(s)),
 	VERSION("version", (p,s) -> p.setVersion(s)),
-	DESCRIPTION("description", (p,s) -> p.setDescription(s)),
 	MAIN("main", (p,s) -> p.setPath(s))
 	;
 	

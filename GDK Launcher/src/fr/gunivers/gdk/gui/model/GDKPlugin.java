@@ -1,9 +1,12 @@
 package fr.gunivers.gdk.gui.model;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class GDKPlugin
+public class GDKPlugin implements Serializable
 {
+	private static final long serialVersionUID = 1160705032547915636L;
+	
 	protected String name = "<GDK Plugin>";
 	protected String author = "<Unknown>";
 	protected String version = "<Unknown>";
