@@ -69,24 +69,32 @@ public class Util
 			
 			loop: while((line = reader.readLine()) != null)
 			{
-				if (!line.matches(".&[^=]+=.&[^=]+")) continue;
-					
-				for (Link link : Link.values())
+				if (!line.matches(".+=.+")) continue;
+				
+				if (line.equalsIgnoreCase(Link.DESCRIPTION.key +'='))
 				{
-					if (line.split("=")[0].equalsIgnoreCase("description"))
-					{
-						StringBuilder desc = new StringBuilder();
-						while((line = reader.readLine()) != null) desc.append(line);
-						break loop;
-					}
-					else if (line.split("=")[0].equalsIgnoreCase(link.key))
-						link.action.accept(plugin, line.split("=")[1]);
+					System.out.println("Parsing description");
+					StringBuilder desc = new StringBuilder();
+					
+					while((line = reader.readLine()) != null) desc.append(line);
+					break loop;
 				}
+				
+				for (Link link : Link.values())
+					if (line.split("=")[0].equalsIgnoreCase(link.key))
+						link.action.accept(plugin, line.split("=")[1]);
 			}
 			reader.close();
 			
+			System.out.println("\n Plugin " + file.getName() +":\n"
+							+  "  - Name: "+ plugin.getName()		+'\n'
+							+  "  - Author: "+ plugin.getAuthor()	+'\n'
+							+  "  - Version: "+ plugin.getVersion()	+'\n'
+							+  "  - Main: "+ plugin.getPath()		+'\n'
+							+  "  - Description: "+ plugin.getDescription());
+			
 			if (!plugin.getPath().matches("(\\w+.)*\\w+"))
-				return Util.newEntry(null, "Invalid class path");
+				return Util.newEntry(null, "Invalid class path: " + plugin.getPath());
 			
 			plugin.setJarFile(file);
 			return Util.newEntry(plugin, "");
