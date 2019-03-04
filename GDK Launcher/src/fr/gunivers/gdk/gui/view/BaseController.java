@@ -68,7 +68,7 @@ public class BaseController extends Controller
 		
 		if (files != null)
 		{
-			StringBuilder success = new StringBuilder("Successfully loaded:");
+			StringBuilder success = new StringBuilder("Successful loads:");
 			StringBuilder fail = new StringBuilder("\nFailed loads:");
 			
 			for (File file : files)

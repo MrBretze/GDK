@@ -67,13 +67,21 @@ public class Util
 			GDKPlugin plugin = new GDKPlugin();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(jar.getInputStream(plugin_txt)));
 			
-			while((line = reader.readLine()) != null)
+			loop: while((line = reader.readLine()) != null)
 			{
 				if (!line.matches(".&[^=]+=.&[^=]+")) continue;
 					
 				for (Link link : Link.values())
-					if (link.key == line.split("=")[0])
+				{
+					if (line.split("=")[0].equalsIgnoreCase("description"))
+					{
+						StringBuilder desc = new StringBuilder();
+						while((line = reader.readLine()) != null) desc.append(line);
+						break loop;
+					}
+					else if (line.split("=")[0].equalsIgnoreCase(link.key))
 						link.action.accept(plugin, line.split("=")[1]);
+				}
 			}
 			reader.close();
 			
