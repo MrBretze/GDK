@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.gunivers.gdk.gui.view.BaseController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#menuFile_clickLoadPlugin" text="Load Plugins...">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem hideOnClick="true" mnemonicParsing="false" />
+              <MenuItem mnemonicParsing="false" onAction="#menuFile_clickQuit" text="Quit">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+               <accelerator>
+                  <KeyCodeCombination alt="ANY" code="F" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Our site" />
+                  <MenuItem mnemonicParsing="false" text="Credits" />
+                  <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+               <accelerator>
+                  <KeyCodeCombination alt="UP" code="H" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <ListView fx:id="plugins" />
+            <SplitPane dividerPositions="0.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL">
+              <items>
+                  <TextArea fx:id="information" prefHeight="200.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" onAction="#buttonRun_click" text="Run" textAlignment="CENTER" />
+                        <Button layoutX="227.0" layoutY="26.0" mnemonicParsing="false" onAction="#buttonUnload_click" text="Unload" textAlignment="CENTER" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
